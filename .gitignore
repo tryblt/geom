@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Nan
+main
+makefile~
+main.cpp~
