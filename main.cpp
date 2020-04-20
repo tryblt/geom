@@ -1,12 +1,8 @@
 #include <iostream>
 #include <math.h>
+#include "printCoord.h"
 using namespace std;
 float pi = 3.14;
-void Coord(int x, int y, int r)
-{
-    cout << "Circle(" << x << " " << y << ", " << r << ")" << endl;
-}
-
 float P(int r)
 {
     float p = 2 * pi * r;
