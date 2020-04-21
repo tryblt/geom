@@ -1,13 +1,10 @@
 #include <iostream>
 #include <math.h>
 #include "printCoord.h"
+#include "Perimeter.h"
 using namespace std;
 float pi = 3.14;
-float P(int r)
-{
-    float p = 2 * pi * r;
-    return p;
-}
+
 
 float S(int r)
 {
