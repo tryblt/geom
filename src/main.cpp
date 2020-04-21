@@ -1,16 +1,10 @@
+#include "Area.h"
+#include "Perimeter.h"
+#include "printCoord.h"
 #include <iostream>
 #include <math.h>
-#include "printCoord.h"
-#include "Perimeter.h"
+
 using namespace std;
-float pi = 3.14;
-
-
-float S(int r)
-{
-    float s = pi * pow(r, 2);
-    return s;
-}
 
 int main()
 {
