@@ -19,4 +19,4 @@ build/Area.o: src/Area.cpp
 	$(CC) $(CFLAGS) -c src/Area.cpp -o build/Area.o
 	
 clean:
-	rm -rf build/*.o
+	rm -rf build/*.o bin/*.exe
