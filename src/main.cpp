@@ -1,5 +1,4 @@
-#include "Area.h"
-#include "Perimeter.h"
+#include "func.h"
 #include "printCoord.h"
 #include <iostream>
 #include <math.h>
