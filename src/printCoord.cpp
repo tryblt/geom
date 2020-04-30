@@ -37,9 +37,9 @@ bool Coord(float& x, float& y, float& r)
     } else {
         return false;
     }
-    x = std::stof(strX);
-    y = std::stof(strY);
-    r = std::stof(strR);
+    x = stof(strX);
+    y = stof(strY);
+    r = stof(strR);
     if (r <= 0) {
         return false;
     }
