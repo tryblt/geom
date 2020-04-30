@@ -9,20 +9,16 @@ int main()
 {
     float x, y, r, x1, y1, r1;
 
-	string str, str1;
-	cout << "Correct imput example: (x y, r)" << endl;
+    string str, str1;
+    cout << "Correct imput example: (x y, r)" << endl;
     cout << "Enter coord of 1 circle: ";
-    
-	if(Coord(x, y, r))
-	{
-	
-	cout << "1. ";
-	cout << "x = " << x << ", y = " << y << ", r = " << r;
-    
-    
-    cout << "\nS: " << S(r) << "\nP: " << P(r) << endl;
-}
-else
-cout << "Ooops...";
+
+    if (Coord(x, y, r)) {
+        cout << "1. ";
+        cout << "x = " << x << ", y = " << y << ", r = " << r;
+
+        cout << "\nS: " << S(r) << "\nP: " << P(r) << endl;
+    } else
+        cout << "Ooops...";
     return 0;
 }
