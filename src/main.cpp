@@ -7,19 +7,22 @@ using namespace std;
 
 int main()
 {
-    int x, y, r, x1, y1, r1;
+    float x, y, r, x1, y1, r1;
+
+	string str, str1;
+	cout << "Correct imput example: (x y, r)" << endl;
     cout << "Enter coord of 1 circle: ";
-    cin >> x >> y >> r;
-    cout << "Enter coord of 2 circle: ";
-    cin >> x1 >> y1 >> r1;
-
-    cout << "1. ";
-    Coord(x, y, r);
+    
+	if(Coord(x, y, r))
+	{
+	
+	cout << "1. ";
+	cout << "x = " << x << ", y = " << y << ", r = " << r;
+    
+    
     cout << "\nS: " << S(r) << "\nP: " << P(r) << endl;
-
-    cout << "2. ";
-    Coord(x1, y1, r1);
-    cout << "\nS: " << S(r1) << "\nP: " << P(r1) << endl;
-
+}
+else
+cout << "Ooops...";
     return 0;
 }
