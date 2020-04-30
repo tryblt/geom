@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    float x, y, r, x1, y1, r1;
+    float x, y, r;
 
     string str, str1;
     cout << "Correct imput example: (x y, r)" << endl;
