@@ -1,8 +1,9 @@
 #ifndef FUNC_H
 #define FUNC_H
+#include <math.h>
 #define pi 3.14
 
-float S(int r);
-float P(int r);
+float S(float r);
+float P(float r);
 
 #endif
