@@ -3,7 +3,7 @@
 bool Coord(float& x, float& y, float& r)
 {
     std::string strX, strY, strR, str;
-    int o = 0, i, Z, L, R, space, z = 0;
+    int o = 0, i, Z, L, R, space;
     std::getline(std::cin, str, '\n');
 
     L = str.find("(");
@@ -43,6 +43,7 @@ bool Coord(float& x, float& y, float& r)
     if (r <= 0) {
         return false;
     }
+    return true;
 }
 
 bool check(std::string str, std::string& strC, int i, int o)
@@ -55,10 +56,11 @@ bool check(std::string str, std::string& strC, int i, int o)
         if (o > 1) {
             return false;
         }
-        return true;
+
     } else {
         if (isalpha(str[i]) || isascii(str[i])) {
             return false;
         }
     }
+    return true;
 }
