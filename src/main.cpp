@@ -12,7 +12,7 @@ int main()
     string str;
     cout << "Correct imput example: (x y, r)" << endl;
     cout << "Enter coord of 1 circle: ";
-    getline(cin, str, '\n');
+	getline(cin, str, '\n');
     if (Coord(str, x, y, r)) {
         cout << "1. ";
         cout << "x = " << x << ", y = " << y << ", r = " << r;
