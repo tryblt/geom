@@ -12,9 +12,8 @@ bool Coord(std::string str, float& x, float& y, float& r)
     if (L != -1 && R != -1 && Z != -1 && space != -1) {
         if (str[L + 1] == '-') {
             strX += str[L + 1];
-            i =  L + 2;
-        }
-        else {
+            i = L + 2;
+        } else {
             i = L + 1;
         }
         int o = 0;
@@ -28,16 +27,14 @@ bool Coord(std::string str, float& x, float& y, float& r)
                     return false;
                 }
 
-            }
-            else {
-                    return false;
+            } else {
+                return false;
             }
         }
         if (str[space + 1] == '-') {
-            strY+= str[space + 1];
+            strY += str[space + 1];
             i = space + 2;
-        }
-        else {
+        } else {
             i = space + 1;
         }
         o = 0;
@@ -51,33 +48,30 @@ bool Coord(std::string str, float& x, float& y, float& r)
                     return false;
                 }
 
+            } else {
+                return false;
             }
-            else {
-                    return false;
-            }
-        }   
+        }
         o = 0;
-            for (i = Z + 2; i < R; ++i) {
-                if (isdigit(str[i]) || str[i] == '.') {
-                    strR += str[i];
-                    if (str[i] == '.') {
-                        o++;
-                    }
-                    if (o > 1) {
-                        return false;
-                    }
-
+        for (i = Z + 2; i < R; ++i) {
+            if (isdigit(str[i]) || str[i] == '.') {
+                strR += str[i];
+                if (str[i] == '.') {
+                    o++;
                 }
-                else {
-                        return false;
-                    }
+                if (o > 1) {
+                    return false;
+                }
+
+            } else {
+                return false;
             }
-    }
-    else {
+        }
+    } else {
         return false;
     }
- x = stof(strX);
- y = stof(strY);
- r = stof(strR);
+    x = stof(strX);
+    y = stof(strY);
+    r = stof(strR);
     return true;
 }
