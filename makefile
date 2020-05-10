@@ -1,20 +1,23 @@
 .PHONY: clean all
 CC = g++
 CFLAGS = -Wall -Werror
+EXE = bin/geom
+TESTS = bin/test
+DIR_SRC = build/src
+DIR_TEST = build/test
+all: $(EXE) $(TESTS)
 
-all: bin/geom
+$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
+	$(CC) $(CFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o -o $(EXE)
 
-bin/geom: build/main.o build/printCoord.o build/func.o
-	$(CC) $(CFLAGS) build/main.o build/printCoord.o build/func.o -o bin/geom
+$(DIR_SRC)/main.o: src/main.cpp
+	$(CC) $(CFLAGS) -c --std=c++17 src/main.cpp -o $(DIR_SRC)/main.o
 
-build/main.o: src/main.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/main.cpp -o build/main.o
+$(DIR_SRC)/printCoord.o: src/printCoord.cpp
+	$(CC) $(CFLAGS) -c --std=c++17 src/printCoord.cpp -o $(DIR_SRC)/printCoord.o
 
-build/printCoord.o: src/printCoord.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/printCoord.cpp -o build/printCoord.o
-
-build/func.o: src/func.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/func.cpp -o build/func.o
+$(DIR_SRC)/func.o: src/func.cpp
+	$(CC) $(CFLAGS) -c --std=c++17 src/func.cpp -o $(DIR_SRC)/func.o
 
 clean:
 	rm -rf build/*.o bin/*.exe
