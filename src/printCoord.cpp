@@ -17,7 +17,7 @@ bool Coord(std::string str, float& x, float& y, float& r)
             i = L + 1;
         }
         int o = 0;
-        for (i; i < space; ++i) {
+        for (; i < space; ++i) {
             if (isdigit(str[i]) || str[i] == '.') {
                 strX += str[i];
                 if (str[i] == '.') {
@@ -38,7 +38,7 @@ bool Coord(std::string str, float& x, float& y, float& r)
             i = space + 1;
         }
         o = 0;
-        for (i; i < Z; ++i) {
+        for (; i < Z; ++i) {
             if (isdigit(str[i]) || str[i] == '.') {
                 strY += str[i];
                 if (str[i] == '.') {
