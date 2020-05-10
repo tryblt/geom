@@ -10,15 +10,29 @@ bool Coord(std::string str, float& x, float& y, float& r)
     Z = str.find(", ");
     space = str.find(" ");
     if (L != -1 && R != -1 && Z != -1 && space != -1) {
-        for (i = L + 1; i < space;) {
+        if (str[L + 1] == '-') {
+            strX += str[L + 1];
+            i =  L + 2;
+        }
+        else {
+            i = L + 1;
+        }
+		for (i; i < space;) {
             if (check(str, strX, i, o)) {
                 ++i;
             } else {
                 return false;
             }
         }
+        if (str[space + 1] == '-') {
+            strY+= str[space + 1];
+            i = space + 2;
+        }
+        else {
+            i = space + 1;
+        }
         o = 0;
-        for (i = space + 1; i < Z;) {
+        for (i; i < Z;) {
             if (check(str, strY, i, o)) {
                 ++i;
             } else {
@@ -36,9 +50,9 @@ bool Coord(std::string str, float& x, float& y, float& r)
     } else {
         return false;
     }
-    /*x = stof(strX);
+    x = stof(strX);
     y = stof(strY);
-    r = stof(strR);*/
+    r = stof(strR);
     if (r <= 0) {
         return false;
     }
