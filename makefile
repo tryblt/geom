@@ -7,6 +7,9 @@ DIR_SRC = build/src
 DIR_TEST = build/test
 GTEST_D = thirdparty/googletest
 LD_FLAGS = -L $(GTEST_D)/lib -lpthread -lgtest_main
+CFLAG += -isystem thirdparty/googletest/include
+CXX += -g -Wall -Wextra -pthread -std=c++17
+
 all: $(EXE) $(TESTS)
 
 $(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
@@ -22,10 +25,10 @@ $(DIR_SRC)/func.o: src/func.cpp
 	$(CC) $(CFLAGS) -c src/func.cpp -o $(DIR_SRC)/func.o
 
 $(TESTS) : $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
-	$(CC) $(CFLAGS) $(LD_FLAGS) $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
+	$(CXX) $(CFLAG) $(LD_FLAGS) $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
 
 $(DIR_TEST)/test.o: test/test.cpp
-	$(CC) $(CFLAGS) -I $(GTEST_D)/include -I src -c test/test.cpp $@
+	$(CXX) $(CFLAG) -I $(GTEST_D)/include -I src -c test/test.cpp $@
 	
 
 clean:
