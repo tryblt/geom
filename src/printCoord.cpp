@@ -1,11 +1,10 @@
 #include "printCoord.h"
 
-bool Coord(float& x, float& y, float& r)
+bool Coord(std::string str, float& x, float& y, float& r)
 {
-    std::string strX, strY, strR, str;
+    std::string strX, strY, strR;
     int o = 0, i, Z, L, R, space;
-    std::getline(std::cin, str, '\n');
-
+    
     L = str.find("(");
     R = str.find(")");
     Z = str.find(", ");
@@ -37,9 +36,9 @@ bool Coord(float& x, float& y, float& r)
     } else {
         return false;
     }
-    x = stof(strX);
+    /*x = stof(strX);
     y = stof(strY);
-    r = stof(strR);
+    r = stof(strR);*/
     if (r <= 0) {
         return false;
     }
