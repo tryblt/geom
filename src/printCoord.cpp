@@ -53,9 +53,6 @@ bool Coord(std::string str, float& x, float& y, float& r)
     x = stof(strX);
     y = stof(strY);
     r = stof(strR);
-    if (r <= 0) {
-        return false;
-    }
     return true;
 }
 
@@ -69,11 +66,8 @@ bool check(std::string str, std::string& strC, int i, int o)
         if (o > 1) {
             return false;
         }
-
     } else {
-        if (isalpha(str[i]) || isascii(str[i])) {
             return false;
-        }
     }
     return true;
 }
