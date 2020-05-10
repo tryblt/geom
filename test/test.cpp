@@ -1,4 +1,5 @@
 #include "func.h"
+#include "printCoord.h"
 #include <gtest/gtest.h>
 
 TEST(PERIMETER, PerimeterCorrect) {
@@ -36,4 +37,22 @@ TEST(COORD, Correct) {
     
 	str = "(-758 982, 78.258)";
     EXPECT_TRUE(Coord(str, x, y, r));
+}
+
+TEST(COORD, inCorrect) {
+    float x, y, r;
+    std::string str = "()";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "7 18, 6";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "(0.1 0.2,0.7)";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "(758 982 78.258)";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "(sacvvd 0avds2, 0.afsfs7)";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "(@#$%^& asc, 78)";
+    EXPECT_FALSE(Coord(str, x, y, r));
+    str = "(144 82, -78)";
+    EXPECT_FALSE(Coord(str, x, y, r));
 }
