@@ -5,7 +5,6 @@
 #include <math.h>
 #include <string>
 
-bool Coord(float& x, float& y, float& r);
-bool check(std::string str, std::string& strC, int i, int o);
+bool Coord(std::string str, float& x, float& y, float& r);
 
 #endif

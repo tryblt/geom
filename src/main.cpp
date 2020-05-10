@@ -9,11 +9,11 @@ int main()
 {
     float x, y, r;
 
-    string str, str1;
+    string str;
     cout << "Correct imput example: (x y, r)" << endl;
     cout << "Enter coord of 1 circle: ";
-
-    if (Coord(x, y, r)) {
+    getline(cin, str, '\n');
+    if (Coord(str, x, y, r)) {
         cout << "1. ";
         cout << "x = " << x << ", y = " << y << ", r = " << r;
 
