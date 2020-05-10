@@ -6,7 +6,7 @@ TESTS = bin/test
 DIR_SRC = build/src
 DIR_TEST = build/test
 GTEST_D = thirdparty/googletest
-LD_FLAGS = -L $(GTEST_D)/lib -lpthread -lgtest_main
+LD_FLAGS = -L $(GTEST_D)/lib -lgtest_main -lpthread
 CFLAG += -isystem thirdparty/googletest/include
 CXX += -g -Wall -Wextra -pthread -std=c++17
 
