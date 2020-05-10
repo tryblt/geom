@@ -3,8 +3,8 @@
 bool Coord(std::string str, float& x, float& y, float& r)
 {
     std::string strX, strY, strR;
-    int o = 0, i, Z, L, R, space;
-    
+    int i, Z, L, R, space;
+
     L = str.find("(");
     R = str.find(")");
     Z = str.find(", ");
@@ -17,11 +17,20 @@ bool Coord(std::string str, float& x, float& y, float& r)
         else {
             i = L + 1;
         }
-		for (i; i < space;) {
-            if (check(str, strX, i, o)) {
-                ++i;
-            } else {
-                return false;
+        int o = 0;
+        for (i; i < space; ++i) {
+            if (isdigit(str[i]) || str[i] == '.') {
+                strX += str[i];
+                if (str[i] == '.') {
+                    o++;
+                }
+                if (o > 1) {
+                    return false;
+                }
+
+            }
+            else {
+                    return false;
             }
         }
         if (str[space + 1] == '-') {
@@ -32,42 +41,43 @@ bool Coord(std::string str, float& x, float& y, float& r)
             i = space + 1;
         }
         o = 0;
-        for (i; i < Z;) {
-            if (check(str, strY, i, o)) {
-                ++i;
-            } else {
-                return false;
+        for (i; i < Z; ++i) {
+            if (isdigit(str[i]) || str[i] == '.') {
+                strY += str[i];
+                if (str[i] == '.') {
+                    o++;
+                }
+                if (o > 1) {
+                    return false;
+                }
+
             }
-        }
+            else {
+                    return false;
+            }
+        }   
         o = 0;
-        for (i = Z + 2; i < R;) {
-            if (check(str, strR, i, o)) {
-                ++i;
-            } else {
-                return false;
+            for (i = Z + 2; i < R; ++i) {
+                if (isdigit(str[i]) || str[i] == '.') {
+                    strR += str[i];
+                    if (str[i] == '.') {
+                        o++;
+                    }
+                    if (o > 1) {
+                        return false;
+                    }
+
+                }
+                else {
+                        return false;
+                    }
             }
-        }
-    } else {
+    }
+    else {
         return false;
     }
-    x = stof(strX);
-    y = stof(strY);
-    r = stof(strR);
-    return true;
-}
-
-bool check(std::string str, std::string& strC, int i, int o)
-{
-    if (isdigit(str[i]) || str[i] == '.') {
-        strC += str[i];
-        if (str[i] == '.') {
-            o++;
-        }
-        if (o > 1) {
-            return false;
-        }
-    } else {
-            return false;
-    }
+ x = stof(strX);
+ y = stof(strY);
+ r = stof(strR);
     return true;
 }
