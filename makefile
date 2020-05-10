@@ -1,6 +1,6 @@
 .PHONY: clean all
 CC = g++
-CFLAGS = -Wall -Werror --std=c++17
+CXXFLAGS = -Wall -Werror --std=c++17
 EXE = bin/geom
 TESTS = bin/test
 DIR_SRC = build/src
@@ -13,16 +13,16 @@ CXX += -g -Wall -Wextra -pthread -std=c++17
 all: $(EXE) $(TESTS)
 
 $(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
-	$(CC) $(CFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o -o $(EXE)
+	$(CC) $(CXXFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o -o $(EXE)
 
 $(DIR_SRC)/main.o: src/main.cpp
-	$(CC) $(CFLAGS) -c src/main.cpp -o $(DIR_SRC)/main.o
+	$(CC) $(CXXFLAGS) -c src/main.cpp -o $(DIR_SRC)/main.o
 
 $(DIR_SRC)/printCoord.o: src/printCoord.cpp
-	$(CC) $(CFLAGS) -c src/printCoord.cpp -o $(DIR_SRC)/printCoord.o
+	$(CC) $(CXXFLAGS) -c src/printCoord.cpp -o $(DIR_SRC)/printCoord.o
 
 $(DIR_SRC)/func.o: src/func.cpp
-	$(CC) $(CFLAGS) -c src/func.cpp -o $(DIR_SRC)/func.o
+	$(CC) $(CXXFLAGS) -c src/func.cpp -o $(DIR_SRC)/func.o
 
 $(TESTS) : $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o $(DIR_TEST)/test.o
 	$(CXX) $(CFLAG) $(LD_FLAGS) $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o  $(DIR_TEST)/test.o -o $(TESTS)
