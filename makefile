@@ -22,7 +22,7 @@ $(DIR_SRC)/func.o: src/func.cpp
 	$(CC) $(CFLAGS) -c src/func.cpp -o $(DIR_SRC)/func.o
 
 $(TESTS) : $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
-	$(CC) $(CFLAGS) -L$(LD_FLAGS) $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
+	$(CC) $(CFLAGS) $(LD_FLAGS) $(DIR_TEST)/test.o $(DIR_SRC)/printCoord.o $(DIR_SRC)/func.o
 
 $(DIR_TEST)/test.o: test/test.cpp
 	$(CC) $(CFLAGS) -I $(GTEST_D)/include -I src -c test/test.cpp $@
